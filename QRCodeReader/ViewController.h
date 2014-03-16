@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *bbitemStart;
 
 - (IBAction)startStopReading:(id)sender;
+- (IBAction)handleQuit:(id)sender;
 
 
 @end

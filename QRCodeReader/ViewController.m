@@ -37,6 +37,13 @@
     [self loadBeepSound];
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self startReading];
+    self.lblStatus.hidden = YES;
+    
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -161,6 +168,15 @@
             // Everything is done on the main thread.
             [_lblStatus performSelectorOnMainThread:@selector(setText:) withObject:[metadataObj stringValue] waitUntilDone:NO];
             
+            NSString *scandata = [metadataObj stringValue];
+            NSLog (@"Send the test notification, scandata=%@ ",scandata);
+            
+            NSDictionary * dict = [NSDictionary dictionaryWithObject:scandata forKey:@"scandata"];
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"TestNotification"
+             object:self
+             userInfo:dict];
+
             [self performSelectorOnMainThread:@selector(stopReading) withObject:nil waitUntilDone:NO];
             [_bbitemStart performSelectorOnMainThread:@selector(setTitle:) withObject:@"Start!" waitUntilDone:NO];
 
@@ -170,10 +186,16 @@
             if (_audioPlayer) {
                 [_audioPlayer play];
             }
+            [self dismissViewControllerAnimated:YES completion:nil];
+
         }
     }
     
     
+}
+
+-(IBAction) handleQuit:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
