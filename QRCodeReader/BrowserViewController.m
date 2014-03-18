@@ -45,7 +45,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://minidonations.org/"]];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://minidonations-staging.com"]];
     [self.uiWebView loadRequest:urlRequest];
     
     NSLog (@"Register test notification!");
