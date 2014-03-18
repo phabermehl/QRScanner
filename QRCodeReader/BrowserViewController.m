@@ -74,17 +74,17 @@
 */
 
 - (IBAction)handleCausesBtn:(id)sender{
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://minidonations.org/search/index?search_type=causes"]];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://minidonations-staging.com/search/index?search_type=causes"]];
     [self.uiWebView loadRequest:urlRequest];
    
 }
 - (IBAction)handlePartnersBtn:(id)sender{
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://minidonations.org/search/index?search_type=partners"]];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://minidonations-staging.com/search/index?search_type=partners"]];
     [self.uiWebView loadRequest:urlRequest];
  
 }
 - (IBAction)handleMemberBtn:(id)sender{
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://minidonations.org/search/index?search_type=donors"]];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://minidonations-staging.com/search/index?search_type=donors"]];
     [self.uiWebView loadRequest:urlRequest];
 
 }
